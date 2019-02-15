@@ -23,6 +23,12 @@
                     "containerPath": "/var/web"
                 }
             ],
+            "portMappings":[
+                {
+                    "hostPort":80,
+                    "containerPort":80
+                }
+            ],
             "command":["tail", "-f", "/dev/null"]
         }
     ]
