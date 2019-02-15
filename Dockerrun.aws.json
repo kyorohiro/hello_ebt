@@ -1,0 +1,29 @@
+{
+    "AWSEBDockerrunVersion" : 2,
+    "volumes": [
+        {
+            "name":"web",
+            "host": {
+                "sourcePath": "/var/app/current/web"
+            }
+        }
+    ],
+    "containerDefinitions" : [
+        {
+            "name": "ubuntu",
+            "image": "ubuntu:16:04",
+            "environment": [
+                {"name":"name", "value":"ubuntu"}
+            ],
+            "essential":true,
+            "memory":128,
+            "mountPoints":[
+                {
+                    "sourceVolume" : "web",
+                    "containerPath": "/var/web"
+                }
+            ],
+            "command":["tail", "-f", "/dev/null"]
+        }
+    ]
+}
